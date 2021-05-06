@@ -7,6 +7,9 @@ import datetime
 class ProgressStatus(models.Model):
     PENDING = "pending"
     COMPLETED = "completed"
+    SCHEDULED = "scheduled"
+    RESHCEDULE = "reschedule"
+    SUBMITTED = "submitted"
 
     email = models.CharField(max_length=100, default="---")
     llcformationstatus = models.CharField(max_length=50, default="---")
@@ -54,8 +57,15 @@ class StatusEngine(models.Model):
         (FAILED, "Gave up retrying due to multiple failures"),
     ]
 
+    FORMATION_DAILY = 'Hyke Daily'
+    FORMATION_SALESFORCE = 'Hyke Salesforce'
+    FORMATION_SYSTEM = "Hyke System"
+
     email = models.CharField(max_length=50, blank=True)
     process = models.CharField(max_length=100)
+
+    #might be worth to change this field to choices since we only have (Hyke Daily, Hyke Salesforce)
+    # but since i don't know if other services is using this model with some other values or DB with other values, i'll just create const here
     formationtype = models.CharField(max_length=20, default="---")
     processstate = models.IntegerField(default=1)
     outcome = models.IntegerField(choices=OUTCOMES, default=SCHEDULED)
@@ -100,3 +110,4 @@ class CalendlyLog(models.Model):
     def __str__(self):
         pretty_print_time = datetime.strftime(self.scheduledtime, "%I:%M%p - %A, %B %d, %Y")
         return "%s - %s - %s - %s" % (self.id, self.email, self.slug, pretty_print_time)
+
