@@ -25,7 +25,7 @@ logger = get_logger(__name__)
 
 
 def scheduled_system():
-    print("Scheduled task is started for Hyke System...")
+    print("Scheduled task is started for Hyke System....")
 
     items = StatusEngine.objects.filter(Q(outcome=StatusEngine.SCHEDULED) &
                                         Q(formationtype__startswith="Hyke System") &
