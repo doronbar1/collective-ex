@@ -79,13 +79,6 @@ class StatusEngine(models.Model):
 
     def __str__(self):
         return "%s - %s - %s" % (self.id, self.email, self.process)
-    
-    def save(self, *args, **kwargs):
-        if self.published and self.pub_date is None:
-            self.pub_date = timezone.now()
-        elif not self.published and self.pub_date is not None:
-            self.pub_date = None
-        super(StatusEngine, self).save(*args, **kwargs)
 
 
 class ScheduledCalendlyLogManager(models.Manager):
