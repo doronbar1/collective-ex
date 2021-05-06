@@ -4,10 +4,13 @@ This is a real, in-use example from our codebase that regularly sees edits... or
 
 ### Submit a ZIP file containing:
 
-- A source control repo of your preference containing incremental commits.
+- A source control repo of your preference containing incremental commits. - https://github.com/doronbar1/collective-ex/pull/1
 - Starting with the sample code prior to your refactor.
-- Whatever tests make sense to support the original and your refactor, assuming there is no test coverage currently.
-- Explanations of why you made the refactors that you did and what you omitted and why.
+Q - Whatever tests make sense to support the original and your refactor, assuming there is no test coverage currently.
+A - I've tried to break most of the logic into smaller functions that it will be relatively easy to test since each function is pretty small. The main function is the engine that pull the tasks that needs to be run, so process name will have his dedicated funtion to execute.
+
+Q - Explanations of why you made the refactors that you did and what you omitted and why.
+A - I've tried to remove unnecessary code, as well as improve DB performance while keeping the code readable and understandable. With all of that, I was also trying to break the big function called scheduled_system, into smalled chunks of code which will enable us to test the logic for each type of process name
 
 ### Be prepared to present and discuss your decisions!
 
