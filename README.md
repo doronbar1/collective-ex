@@ -5,7 +5,7 @@ This is a real, in-use example from our codebase that regularly sees edits... or
 ### Submit a ZIP file containing:
 
 - A source control repo of your preference containing incremental commits. <br /> - https://github.com/doronbar1/collective-ex/pull/1
-- Starting with the sample code prior to your refactor.
+- Starting with the sample code prior to your refactor. <br />
 Q - Whatever tests make sense to support the original and your refactor, assuming there is no test coverage currently. <br />
 A - I've tried to break most of the logic into smaller functions that it will be relatively easy to test since each function is pretty small. The main function is the engine that pull the tasks that needs to be run, so process name will have his dedicated funtion to execute. <br />
 
